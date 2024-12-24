@@ -5,7 +5,7 @@ REGISTRY=local
 NAMESPACE=twilio
 NAME=twilio
 BINARY=terraform-provider-${NAME}
-VERSION=0.18.31
+VERSION=0.18.46
 OS_ARCH=darwin_amd64
 
 default: build
@@ -17,7 +17,7 @@ build: goimports terrafmt
 	go build -o ${BINARY}
 
 goimports:
-	go install golang.org/x/tools/cmd/goimports@latest
+	go install golang.org/x/tools/cmd/goimports@v0.24.0
 	goimports -w .
 	go mod tidy
 

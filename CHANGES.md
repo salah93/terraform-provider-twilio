@@ -1,5 +1,337 @@
 terraform-provider-twilio changelog
 ====================
+[2024-06-06] Version 0.18.46
+----------------------------
+**Api**
+- Mark MaxPrice as obsolete
+
+**Lookups**
+- Update examples for `phone_number_quality_score`
+
+**Messaging**
+- List tollfree verifications on parent account and all sub-accounts
+
+
+[2024-05-24] Version 0.18.45
+----------------------------
+**Api**
+- Add ie1 as supported region for UserDefinedMessage and UserDefinedMessageSubscription.
+
+**Flex**
+- Adding validated field to `plugin_versions`
+- Corrected the data type for `runtime_domain`, `call_recording_webhook_url`, `crm_callback_url`, `crm_fallback_url`, `flex_url` in Flex Configuration
+- Making `routing` optional in Create Interactions endpoint
+
+**Intelligence**
+- Expose operator authoring apis to public visibility
+- Deleted `language_code` parameter from updating service in v2 **(breaking change)**
+- Add read_only_attached_operator_sids to v2 services
+
+**Numbers**
+- Add API endpoint for GET Porting Webhook Configurations By Account SID
+- Remove bulk portability api under version `/v1`. **(breaking change)**
+- Removed porting_port_in_fetch.json files and move the content into porting_port_in.json files
+- Add API endpoint to deleting Webhook Configurations
+- Add Get Phone Number by Port in request SID and Phone Number SID api
+- Add Create Porting webhook configuration API
+- Added bundle_sid and losing_carrier_information fields to Create PortInRequest api to support Japan porting
+
+**Taskrouter**
+- Add back `routing_target` property to tasks
+- Add back `ignore_capacity` property to tasks
+- Removing `routing_target` property to tasks due to revert
+- Removing `ignore_capacity` property to tasks due to revert
+- Add `routing_target` property to tasks
+- Add `ignore_capacity` property to tasks
+
+**Trusthub**
+- Add new field errors to bundle as part of public API response in customer_profile.json and trust_product.json **(breaking change)**
+- Add themeSetId field in compliance_tollfree_inquiry.
+
+**Verify**
+- Update `friendly_name` description on service docs
+
+
+[2024-04-18] Version 0.18.44
+----------------------------
+**Flex**
+- Add header `ui_version` to `web_channels` API
+
+**Messaging**
+- Redeploy after failed pipeline
+
+**Numbers**
+- Add Delete Port In request phone number api and Add Delete Port In request api
+
+
+[2024-04-04] Version 0.18.43
+----------------------------
+**Api**
+- Correct conference filtering by date_created and date_updated documentation, clarifying that times are UTC.
+- Add property `queue_time` to conference participant resource
+- Update RiskCheck documentation
+- Correct call filtering by start and end time documentation, clarifying that times are UTC.
+
+**Flex**
+- Remove optional parameter from `plugins` and it to `plugin_versions`
+- Adding optional parameter to `plugins`
+
+**Lookups**
+- Add new `pre_fill` package to the lookup response
+
+**Media**
+- Remove API: MediaProcessor
+
+**Messaging**
+- Cleanup api.messaging.next-gen from Messaging Services endpoints
+- Readd Sending-Window after fixing test failure
+- Remove Sending-Window due to test failure
+- Add Sending-Window as a response property to Messaging Services, gated by a beta feature flag
+
+**Numbers**
+- Correct valid_until_date field to be visible in Bundles resource
+- Adding port_in_status field to the Port In resource and phone_number_status and sid fields to the Port In Phone Number resource
+
+**Oauth**
+- Modified token endpoint response
+- Added refresh_token and scope as optional parameter to token endpoint
+- Add new APIs for vendor authorize and token endpoints
+
+**Trusthub**
+- Add update inquiry endpoint in compliance_registration.
+- Add new field in themeSetId in compliance_registration.
+
+**Verify**
+- Add `whatsapp.msg_service_sid` and `whatsapp.from` parameters to create, update, get and list of services endpoints
+
+**Voice**
+- Correct conference filtering by date_created and date_updated documentation, clarifying that times are UTC.
+- Correct call filtering by start and end time documentation, clarifying that times are UTC.
+
+
+[2024-03-12] Version 0.18.42
+----------------------------
+**Api**
+- Correct precedence documentation for application_sid vs status_callback in message creation
+- Mark MaxPrice as deprecated
+
+**Flex**
+- Making `plugins` visibility to public
+
+**Messaging**
+- Add new `errors` attribute to the Brand Registration resource.
+- Mark `brand_feedback` attribute as deprecated.
+- Mark `failure_reason` attribute as deprecated.
+- The new `errors` attribute is expected to provide additional information about Brand registration failures and feedback (if any has been provided by The Campaign Registry). Consumers should use this attribute instead of `brand_feedback` and `failure_reason`.
+
+**Numbers**
+- Correcting mount_name for porting port in fetch API
+
+**Trusthub**
+- Add new field in statusCallbackUrl in compliance_registration.
+- Add new field in isvRegisteringForSelfOrTenant in compliance_registration.
+
+
+[2024-02-27] Version 0.18.41
+----------------------------
+**Api**
+- remove feedback and feedback summary from call resource
+
+**Flex**
+- Adding `routing_properties` to Interactions Channels Participant
+
+**Lookups**
+- Add new `line_status` package to the lookup response
+- Remove `live_activity` package from the lookup response **(breaking change)**
+
+**Messaging**
+- Add tollfree multiple rejection reasons response array
+
+**Trusthub**
+- Add ENUM for businessRegistrationAuthority in compliance_registration. **(breaking change)**
+- Add new field in isIsvEmbed in compliance_registration.
+- Add additional optional fields in compliance_registration for Individual business type.
+
+
+[2024-02-09] Version 0.18.40
+----------------------------
+**Api**
+- Updated service base url for connect apps and authorized connect apps APIs **(breaking change)**
+- Update documentation to reflect RiskCheck GA
+- Added optional parameter `CallToken` for create participant api
+
+**Events**
+- Marked as GA
+
+**Flex**
+- Adding `flex_instance_sid` to Flex Configuration
+- Adding `provisioning_status` for Email Manager
+- Adding `offline_config` to Flex Configuration
+
+**Insights**
+- add flag to restrict access to unapid customers
+- decommission voice-qualitystats-endpoint role
+
+**Intelligence**
+- Add text-generation operator (for example conversation summary) results to existing OperatorResults collection.
+
+**Lookups**
+- Remove `carrier` field from `sms_pumping_risk` and leave `carrier_risk_category` **(breaking change)**
+- Remove carrier information from call forwarding package **(breaking change)**
+
+**Messaging**
+- Add update instance endpoints to us_app_to_person api
+- Add tollfree edit_allowed and edit_reason fields
+- Update Phone Number, Short Code, Alpha Sender, US A2P and Channel Sender documentation
+- Add DELETE support to Tollfree Verification resource
+
+**Numbers**
+- Add Get Port In request api
+
+**Push**
+- Migrated to new Push API V4 with Resilient Notification Delivery.
+
+**Serverless**
+- Add node18 as a valid Build runtime
+
+**Taskrouter**
+- Add `jitter_buffer_size` param in update reservation
+- Add container attribute to task_queue_bulk_real_time_statistics endpoint
+- Remove beta_feature check on task_queue_bulk_real_time_statistics endpoint
+
+**Trusthub**
+- Add optional field NotificationEmail to the POST /v1/ComplianceInquiries/Customers/Initialize API
+- Add additional optional fields in compliance_tollfree_inquiry.json
+- Rename did to tollfree_phone_number in compliance_tollfree_inquiry.json
+- Add new optional field notification_email to compliance_tollfree_inquiry.json
+
+**Verify**
+- `Tags` property added again to Public Docs **(breaking change)**
+- Remove `Tags` from Public Docs **(breaking change)**
+- Add `VerifyEventSubscriptionEnabled` parameter to service create and update endpoints.
+- Add `Tags` optional parameter on Verification creation.
+- Update Verify TOTP maturity to GA.
+
+
+[2024-01-25] Version 0.18.39
+----------------------------
+**Oauth**
+- updated openid discovery endpoint uri **(breaking change)**
+- Added device code authorization endpoint
+- added oauth JWKS endpoint
+- Get userinfo resource
+- OpenID discovery resource
+- Add new API for token endpoint
+
+
+[2024-01-14] Version 0.18.38
+----------------------------
+**Push**
+- Migrated to new Push API V4 with Resilient Notification Delivery.
+
+
+[2023-12-14] Version 0.18.37
+----------------------------
+**Api**
+- Updated service base url for connect apps and authorized connect apps APIs **(breaking change)**
+
+**Events**
+- Marked as GA
+
+**Insights**
+- decommission voice-qualitystats-endpoint role
+
+**Numbers**
+- Add Get Port In request api
+
+**Taskrouter**
+- Add `jitter_buffer_size` param in update reservation
+
+**Trusthub**
+- Add additional optional fields in compliance_tollfree_inquiry.json
+
+**Verify**
+- Remove `Tags` from Public Docs **(breaking change)**
+
+
+[2023-12-01] Version 0.18.36
+----------------------------
+**Verify**
+- Add `VerifyEventSubscriptionEnabled` parameter to service create and update endpoints.
+
+
+[2023-11-17] Version 0.18.35
+----------------------------
+**Api**
+- Update documentation to reflect RiskCheck GA
+
+**Messaging**
+- Add tollfree edit_allowed and edit_reason fields
+- Update Phone Number, Short Code, Alpha Sender, US A2P and Channel Sender documentation
+
+**Taskrouter**
+- Add container attribute to task_queue_bulk_real_time_statistics endpoint
+
+**Trusthub**
+- Rename did to tollfree_phone_number in compliance_tollfree_inquiry.json
+- Add new optional field notification_email to compliance_tollfree_inquiry.json
+
+**Verify**
+- Add `Tags` optional parameter on Verification creation.
+
+
+[2023-11-06] Version 0.18.34
+----------------------------
+**Flex**
+- Adding `provisioning_status` for Email Manager
+
+**Intelligence**
+- Add text-generation operator (for example conversation summary) results to existing OperatorResults collection.
+
+**Messaging**
+- Add DELETE support to Tollfree Verification resource
+
+**Serverless**
+- Add node18 as a valid Build runtime
+
+**Verify**
+- Update Verify TOTP maturity to GA.
+
+
+[2023-10-19] Version 0.18.33
+----------------------------
+**Accounts**
+- Updated Safelist metadata to correct the docs.
+- Add Global SafeList API changes
+
+**Api**
+- Added optional parameter `CallToken` for create participant api
+
+**Flex**
+- Adding `offline_config` to Flex Configuration
+
+**Intelligence**
+- Deleted `redacted` parameter from fetching transcript in v2 **(breaking change)**
+
+**Lookups**
+- Add new `phone_number_quality_score` package to the lookup response
+- Remove `disposable_phone_number_risk` package **(breaking change)**
+
+**Messaging**
+- Update US App To Person documentation with current `message_samples` requirements
+
+**Taskrouter**
+- Remove beta_feature check on task_queue_bulk_real_time_statistics endpoint
+- Add `virtual_start_time` property to tasks
+- Updating `task_queue_data` format from `map` to `array` in the response of bulk get endpoint of TaskQueue Real Time Statistics API **(breaking change)**
+
+
+[2023-10-05] Version 0.18.32
+----------------------------
+**Lookups**
+- Add test api support for Lookup v2
+
+
 [2023-09-21] Version 0.18.31
 ----------------------------
 **Conversations**
